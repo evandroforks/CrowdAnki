@@ -104,7 +104,9 @@ class Deck(JsonSerializableAnkiDict):
         media = set()
         return media
         for note in self.notes:
-            for media_file in self.collection.media.filesInStr(note.anki_object.mid, note.anki_object.joinedFields()):
+            anki_object = note.anki_object
+            join_fields = anki_object.joined_fields if hasattr(anki_object, 'joined_fields') else anki_object.joinedFields
+            for media_file in self.collection.media.filesInStr(anki_object.mid, join_fields()):
                 media.add(media_file)
 
         if include_children:
