@@ -42,8 +42,11 @@ class ArchiverVendor:
 
     def do_snapshot(self, reason):
         with progress_indicator(self.window, 'Taking CrowdAnki snapshot of all decks'):
+            import datetime
+            print(f"{datetime.datetime.now()} Starting snapshot for {self.config.full_snapshot_path}...")
             self.all_deck_archiver().archive(overrides=self.overrides(),
                                              reason=reason)
+            print(f"{datetime.datetime.now()} Finished snapshot for {self.config.full_snapshot_path}...")
             self.notifier.info("Snapshot successful",
                                f"The CrowdAnki snapshot to {str(self.config.full_snapshot_path)} successfully completed")
 
