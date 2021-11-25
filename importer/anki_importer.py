@@ -36,6 +36,8 @@ class AnkiJsonImporter:
             aqt.mw.col.close(downgrade=False)
             aqt.mw.backup()
             aqt.mw.col.reopen(after_full_sync=False)
+        import datetime
+        print(f"{datetime.datetime.now()} Starting deck import {directory_path}...")
         try:
             deck = deck_initializer.from_json(deck_json)
             deck.save_to_collection(self.collection, import_config=import_config)
@@ -43,6 +45,7 @@ class AnkiJsonImporter:
             if import_config.use_media:
                 self.import_media(directory_path)
         finally:
+            print(f"{datetime.datetime.now()} Finished deck import {directory_path}...")
             if aqt.mw:
                 aqt.mw.deckBrowser.show()
         return True
