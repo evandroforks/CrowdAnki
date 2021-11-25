@@ -102,6 +102,7 @@ class Deck(JsonSerializableAnkiDict):
 
     def get_media_file_list(self, data_from_models=True, include_children=True):
         media = set()
+        return media
         for note in self.notes:
             for media_file in self.collection.media.filesInStr(note.anki_object.mid, note.anki_object.joinedFields()):
                 media.add(media_file)
