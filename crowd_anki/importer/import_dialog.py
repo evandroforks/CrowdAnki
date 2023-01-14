@@ -95,7 +95,7 @@ class ImportDialog(QDialog):
 
         def add_header(name):
             heading_ui = QListWidgetItem(name)
-            heading_ui.setFlags(Qt.ItemIsEnabled)
+            heading_ui.setFlags(Qt.ItemFlag.ItemIsEnabled)
             heading_ui.setSizeHint(QSize(self.form.list_personal_fields.width(), 30))
             heading_ui.setFont(heading_font)
             self.form.list_personal_fields.addItem(heading_ui)
@@ -103,7 +103,7 @@ class ImportDialog(QDialog):
         def add_field(name, is_personal) -> QListWidgetItem:
             field_ui = QListWidgetItem(name)
             field_ui.setCheckState(Qt.Checked if is_personal else Qt.Unchecked)
-            field_ui.setFlags(Qt.ItemIsEnabled | Qt.ItemIsUserCheckable)
+            field_ui.setFlags(Qt.ItemFlag.ItemIsEnabled | Qt.ItemFlag.ItemIsUserCheckable)
             self.form.list_personal_fields.addItem(field_ui)
             return field_ui
 

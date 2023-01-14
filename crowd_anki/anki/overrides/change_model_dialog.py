@@ -78,10 +78,10 @@ class ChangeModelDialog(QDialog):
         map_widget = QWidget()
         map_widget_layout = QGridLayout()
         combos = []
-        targets = [entity['name'] for entity in dst] + [_("Nothing")]
+        targets = [entity['name'] for entity in dst] + ["Nothing"]
         indices = {}
         for i, entity in enumerate(src):
-            map_widget_layout.addWidget(QLabel(_("Change %s to:") % entity['name']), i, 0)
+            map_widget_layout.addWidget(QLabel("Change %s to:" % entity['name']), i, 0)
             combo_box = QComboBox()
             combo_box.addItems(targets)
             idx = min(i, len(targets) - 1)
@@ -160,10 +160,10 @@ class ChangeModelDialog(QDialog):
         field_map = self.get_field_map()
         templates_map = self.get_template_map()
         if any(True for template in list(templates_map.values()) if template is None) and \
-                not aqt.utils.askUser(_(
+                not aqt.utils.askUser(
                     "Any cards mapped to nothing will be deleted. "
                     "If a note has no remaining cards, it will be lost. "
-                    "Are you sure you want to continue?")):
+                    "Are you sure you want to continue?"):
                 return
 
         self.collection.models.change(self.old_model, self.note_id_list, self.targetModel, field_map, templates_map)
