@@ -21,6 +21,3 @@ dataclasses = "*"
 pygtrie = "*"
 cached-property = "*"
 PyYAML = "*"
-
-[requires]
-python_version = "3.7"

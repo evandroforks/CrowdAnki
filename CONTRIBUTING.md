@@ -42,6 +42,11 @@ operate and put them into the `crowd_anki/dist` directory.
 pointing to `crowd_anki` directory (**you should not** name the symlink `crowd_anki` though, see 
 [#62](https://github.com/Stvad/CrowdAnki/issues/62)).
 
+Install the latest version of pipenv: https://stackoverflow.com/questions/73662432/pipenv-no-such-option-requirements-in-latest-version
+python3 -m pipenv install --upgrade
+edit ./Pipfile to use the same python version as your pipenv is using by removing the python version `[requires] python_version = "3.7"`.
+rmdir "D:\User\Documents\Anki2\addons21\CrowdAnkiInstalled" && mklink /J "D:\User\Documents\Anki2\addons21\CrowdAnkiInstalled" "D:\User\Documents\Anki2\addons21\CrowdAnki\crowd_anki"
+
 At this point if you start Anki - it'd be using your development version of CrowdAnki.  
 If you made some changes to the plugin while Anki is running and want to test them - you need to 
 restart Anki, as plugins are loaded on Anki startup.
