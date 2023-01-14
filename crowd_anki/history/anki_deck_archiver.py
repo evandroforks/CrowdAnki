@@ -18,7 +18,7 @@ class AnkiDeckArchiver(Archiver):
     def archive(self, _: Iterable = tuple(), reason=None):
         deck_path = self.deck_exporter.export_to_directory(self.deck, self.output_directory)
 
-        repo = self.repo_provider(deck_path)
-        repo.stage_all()
-        repo.commit(reason)
-        repo.close()
+        # repo = self.repo_provider(deck_path)
+        # repo.stage_all()
+        # repo.commit(reason)
+        # repo.close()

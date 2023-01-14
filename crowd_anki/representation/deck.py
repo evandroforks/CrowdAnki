@@ -102,6 +102,7 @@ class Deck(JsonSerializableAnkiDict):
 
     def get_media_file_list(self, data_from_models=True, include_children=True):
         media = set()
+        return media
         for note in self.notes:
             anki_object = note.anki_object
             # TODO Remove compatibility shims for Anki 2.1.46 and
