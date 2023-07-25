@@ -47,12 +47,15 @@ class ArchiverVendor:
         disambiguate_note_model_uuids(self.window.col)
 
         with progress_indicator(self.window, 'Taking CrowdAnki snapshot of all decks'):
+            import timeit
             import datetime
-            print(f"{datetime.datetime.now()} Starting snapshot for {self.config.full_snapshot_path}...")
+            from ..export.anki_exporter import print_time, get_time
+            start = timeit.default_timer()
+            print(f"{get_time()} {print_time()} Starting snapshot for {self.config.full_snapshot_path}...")
             self.all_deck_archiver().archive(overrides=self.overrides(),
                                              reason=reason)
-            print(f"{datetime.datetime.now()} Finished snapshot for {self.config.full_snapshot_path}...")
-            self.notifier.info("Snapshot successful",
+            print(f"{get_time()} {print_time(start)} Finished snapshot for {self.config.full_snapshot_path}...")
+            self.notifier.info(f"Snapshot successful after {print_time(start)}, ",
                                f"The CrowdAnki snapshot to {str(self.config.full_snapshot_path)} successfully completed")
 
     def overrides(self):
