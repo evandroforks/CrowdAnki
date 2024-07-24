@@ -50,7 +50,6 @@ class AnkiJsonImporter:
         return True
 
     def import_media(self, directory_path):
-        return
         media_directory = directory_path.joinpath(MEDIA_SUBDIRECTORY_NAME)
         if media_directory.exists():
             unicode_media_directory = str(media_directory)
