@@ -175,6 +175,7 @@ with tempfile.NamedTemporaryFile(
     def _copy_media(self, deck, deck_directory):
         media_directory = deck_directory.joinpath(MEDIA_SUBDIRECTORY_NAME)
 
+        shutil.rmtree(str(media_directory.resolve()), ignore_errors=True)
         media_directory.mkdir(parents=True, exist_ok=True)
 
         for file_src in deck.get_media_file_list():
