@@ -28,7 +28,7 @@ class HookVendor:
 
     def setup_snapshot_hooks(self):
         snapshot_handler = ArchiverVendor(self.window, self.config).snapshot_on_sync
-        self.hook_manager.hook('profileLoaded', snapshot_handler)
+        # self.hook_manager.hook('profileLoaded', snapshot_handler)
         self.hook_manager.hook('unloadProfile', snapshot_handler)
 
     def setup_add_config_hook(self):
